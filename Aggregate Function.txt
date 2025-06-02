@@ -1,0 +1,45 @@
+-- SUM
+Total Sales = SUM(Sales[Amount])
+
+-- AVERAGE
+Average Sales = AVERAGE(Sales[Amount])
+
+-- CORRELATION (Pearson)
+Sales Units Correlation = CORREL(Sales[Units], Sales[Amount])
+
+-- VARIANCE (Sample & Population)
+Sales Variance Sample = VAR.S(Sales[Amount])
+Sales Variance Population = VAR.P(Sales[Amount])
+
+-- COVARIANCE (Manual Calculation)
+Sales Covariance = 
+AVERAGEX(
+    Sales,
+    (Sales[Amount] - AVERAGE(Sales[Amount])) * 
+    (Sales[Units] - AVERAGE(Sales[Units]))
+)
+
+-- STANDARD DEVIATION (Sample & Population)
+Sales StdDev Sample = STDEV.S(Sales[Amount])
+Sales StdDev Population = STDEV.P(Sales[Amount])
+
+-- COUNT (Non-blank & Total Rows)
+Sales Count = COUNT(Sales[Amount])
+Total Rows = COUNTROWS(Sales)
+
+-- MAX
+Max Sale = MAX(Sales[Amount])
+
+-- MIN
+Min Sale = MIN(Sales[Amount])
+
+
+
+
+
+Power bi madhe jaun Modelling madhe new measure vr click karaycha mg ha formula takaycha eka veles ek ch formula
+
+Mg right panel madhe jithe column names astat tithe generate hot te aani mg card use karaycha aani te drag karaychi field new measure vali
+
+
+Saglyanna vegle vegle card use karayche
