@@ -1,0 +1,149 @@
+Here’s a step-by-step guide to perform ETL (Extract, Transform, Load) using Power BI Desktop with the Northwind ODatafeed, and then create a visualization as required.
+
+🌐 Scenario Overview:
+You’ll:
+
+Connect to Northwind OData feed
+
+Clean and transform the data (ETL)
+
+Combine tables
+
+Add a custom field (line_total)
+
+Visualize the results
+
+✅ STEP-BY-STEP INSTRUCTIONS
+🔹 Step 1: Extract – Connect to the Data Source
+Open Power BI Desktop.
+
+Click on Home > Get Data > OData Feed.
+
+In the URL box, enter:
+
+arduino
+Copy
+Edit
+http://services.odata.org/V3/Northwind/Northwind.svc/
+Click OK.
+
+⏳ Power BI will now load available tables like Products, Orders, Order_Details, etc.
+
+🔹 Step 2: Select Tables
+In the Navigator window, select:
+
+Products
+
+Order_Details
+
+Orders
+
+Click Load to bring the data into Power BI.
+
+🔧 STEP 3: Transform (Power Query Editor)
+Click Transform Data to open the Power Query Editor.
+
+🧹 a. Remove unnecessary columns from Products
+In the Products table:
+
+Keep only these columns:
+
+ProductID
+
+ProductName
+
+UnitsInStock
+
+QuantityPerUnit
+
+Select all other columns → Right-click → Remove Columns
+
+🧾 b. Change Data Type of UnitsInStock
+Still in Products table:
+
+Click the icon next to UnitsInStock.
+
+Choose Whole Number.
+
+✅ Now you’ve cleaned the Products table.
+
+🔗 c. Expand the Order_Details Table
+Go to the Order_Details table.
+
+You’ll see a column like Order (it has a small icon with arrows).
+
+Click the expand icon (↕️) next to Order.
+
+Select fields you want from Orders like:
+
+OrderID
+
+OrderDate
+
+CustomerID
+
+ShipCity
+
+EmployeeID
+
+Click OK to expand.
+
+🎯 This step joins Order_Details and Orders into a single table.
+
+➕ d. Add a Custom Column (line_total)
+Still in Order_Details table:
+
+Go to Add Column > Custom Column.
+
+Name: line_total
+
+Formula:
+
+css
+Copy
+Edit
+[UnitPrice] * [Quantity]
+Click OK.
+
+✅ This creates a new column representing the total value for each order line.
+
+✅ Step 4: Load the Transformed Data
+Click Close & Apply (top-left).
+
+Data will load into Power BI’s data model.
+
+📊 STEP 5: Create a Visualization
+You can now create visuals using your transformed data:
+
+🎯 Example: Total Sales by Product
+Insert a Bar Chart.
+
+From Order_Details table:
+
+Drag ProductID or ProductName to Axis.
+
+Drag line_total to Values.
+
+✅ You’ll now see total sales (line_total) per product.
+
+🎯 Optional Visuals:
+Sales by City: Use ShipCity + line_total.
+
+Sales over Time: Use OrderDate + line_total.
+
+✅ Summary of What You Did
+Step	Task	Tool Used
+1	Connected to OData feed	Get Data > OData Feed
+2	Removed unnecessary columns	Power Query Editor
+3	Changed data type	Power Query Editor
+4	Expanded Orders into Order_Details	Expand Column
+5	Created line_total custom field	Add Column
+6	Created visualization in Power BI	Report View
+
+Would you like me to provide:
+
+A sample .pbix file?
+
+Or a screenshot-based guide (PDF or image) for submission?
+
+Let me know how you’d like to proceed!
